@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createRegistry } from "./API-Calls";
+import { createRegistry } from "../API-Calls";
 
 
 const AddRegistry = ({getRegistries}) => {
@@ -11,9 +11,6 @@ const AddRegistry = ({getRegistries}) => {
         console.log("Handle Submit - Add Reg!")
         e.preventDefault();
         // return;
-        console.log("title:" + title)
-        console.log("description:" + description)
-        console.log("Date:" + date)
         createRegistry(title, description, date).then(res => {
             if(res.status === 200){
                 setTitle("");

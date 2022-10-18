@@ -1,0 +1,16 @@
+.product-card{
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.product-image{
+    max-height: 15rem;
+}
+.card-container{
+    justify-content: start;
+    padding-bottom: 1rem;
+}
+.eclipse-Text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -19,6 +19,7 @@ export async function retrieveRegistry(id) {
     return await AxiosClient.get('/registry/'+id)
 }
 
-export async function createProduct(regId) {
-    return await AxiosClient.post('registry/'+regId+'/product')
+export async function createProduct(regId, url) {
+    console.log(url)
+    return await AxiosClient.post('registry/'+regId+'/product',{ url: url })
 }

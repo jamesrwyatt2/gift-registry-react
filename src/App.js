@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Registries from './components/Registries';
+import Registries from './components/GetRegistries';
 import Registry from './components/Registry';
 import {
   BrowserRouter,
