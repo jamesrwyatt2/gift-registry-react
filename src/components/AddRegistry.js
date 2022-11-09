@@ -50,8 +50,8 @@ const AddRegistry = ({ getRegistries }) => {
                     <Form.Label>Date</Form.Label>
                     <Form.Control 
                     placeholder="November 1, 2023"
-                    value={Date}
-                    onChange={e => setDescription(e.target.value)}
+                    value={date}
+                    onChange={e => setDate(e.target.value)}
                     />
                 </Form.Group>
                 <Button variant="primary" onClick={handleSubmit}>Button</Button>

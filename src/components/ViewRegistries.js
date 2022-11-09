@@ -42,6 +42,8 @@ const Registries = ({ props }) => {
           <Col></Col>
           <Col></Col>
         </Row>
+        <br />
+        <Row>
         <div className="d-flex flex-wrap card-container">
           {
             registries
@@ -56,6 +58,7 @@ const Registries = ({ props }) => {
                 </div>
               )}
         </div>
+        </Row>
       </Container>
     </div>
   )
