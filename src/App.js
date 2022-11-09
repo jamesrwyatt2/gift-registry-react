@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Registries from './components/GetRegistries';
+import Registries from './components/ViewRegistries';
 import Registry from './components/Registry';
 import EditRegistry from './components/EditRegistry';
 

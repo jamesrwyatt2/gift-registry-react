@@ -1,0 +1,9 @@
+#div-to-bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.card-footer {
+    background: none !important;
+}

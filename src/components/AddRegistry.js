@@ -1,50 +1,61 @@
 import React, { useState } from "react";
 import { createRegistry } from "../config/API-Calls";
+import { Form, Button } from "react-bootstrap";
 
 
-const AddRegistry = ({getRegistries}) => {
-    const[title, setTitle] = useState("");
-    const[description, setDescription] = useState("");
-    const[date, setDate] = useState("");
+const AddRegistry = ({ getRegistries }) => {
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [date, setDate] = useState("");
 
     const handleSubmit = e => {
         console.log("Handle Submit - Add Reg!")
         e.preventDefault();
         // return;
         createRegistry(title, description, date).then(res => {
-            if(res.status === 200){
+            if (res.status === 200) {
                 setTitle("");
                 setDescription("");
                 setDate("");
                 getRegistries();
             }
         })
-        
+
     }
-    
-    return(
+
+    return (
         <div>
-            <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                className="title"
-                value={title}
-                onChange={e => setTitle(e.target.value)}
-            />
-            <input
-                type="text"
-                className="description"
-                value={description}
-                onChange={e => setDescription(e.target.value)}
-            />
-            <input
-                type="text"
-                className="date"
-                value={date}
-                onChange={e => setDate(e.target.value)}
-            />
-            <button onClick={handleSubmit}>Button</button>
-            </form>
+            <Form className="border border-secondary rounded p-4" onSubmit={handleSubmit}>
+                <h4>Create a new Registry</h4>
+                <Form.Group className="mb-3">
+                    <Form.Label>Event</Form.Label>
+                    <Form.Control 
+                    placeholder="Birthday"
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                    />
+                    <Form.Text className="text-muted">
+                        Example: Birthday or Wedding
+                    </Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control 
+                    placeholder="My 30th Birthday"
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Date</Form.Label>
+                    <Form.Control 
+                    placeholder="November 1, 2023"
+                    value={Date}
+                    onChange={e => setDescription(e.target.value)}
+                    />
+                </Form.Group>
+                <Button variant="primary" onClick={handleSubmit}>Button</Button>
+            </Form>
         </div>
     )
 }
