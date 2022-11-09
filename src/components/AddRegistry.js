@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createRegistry } from "../API-Calls";
+import { createRegistry } from "../config/API-Calls";
 
 
 const AddRegistry = ({getRegistries}) => {

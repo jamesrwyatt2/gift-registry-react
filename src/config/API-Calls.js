@@ -1,4 +1,4 @@
-import AxiosClient from "../AxiosClient";
+import AxiosClient from "./AxiosClient";
 
 
 export async function retrieveRegistries() {
@@ -22,4 +22,8 @@ export async function retrieveRegistry(id) {
 export async function createProduct(regId, url) {
     console.log(url)
     return await AxiosClient.post('registry/'+regId+'/product',{ url: url })
+}
+
+export async function deleteProduct(regId, prodId) {
+    return await AxiosClient.delete('registry/'+regId+'/product/'+ prodId)
 }

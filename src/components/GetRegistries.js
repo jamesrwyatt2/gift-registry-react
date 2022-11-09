@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { retrieveRegistries, deleteRegistry } from "../API-Calls";
-import AddRegistry from "../AddRegistry";
+import { retrieveRegistries, deleteRegistry } from "../config/API-Calls";
+import AddRegistry from "./AddRegistry";
 import {Link} from "react-router-dom";
-import "./style.css";
+import './GetRegistries.css';
 
 
 const Registries = ({props}) => {
