@@ -12,7 +12,7 @@ import {
   useParams,
 } from "react-router-dom";
 import "./Registry.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 const Registry = () => {
   const [registry, setRegistry] = useState({});
@@ -33,18 +33,20 @@ const Registry = () => {
   }
 
   return (
-    <div 
+    <div
     // className="container-fluid container mt-5"
     >
       <Container>
         <Header />
-        <h2>Your Registry {id}</h2>
-
-        <h3>{registry.title} | <Link to={`/registry/${registry.id}/edit`} style={{ color: "inherit" }}>edit</Link></h3>
 
         <Row>
+          <Col>
+            <h3>Event: {registry.title}</h3>
+            <h5>Date: {registry.date}</h5>
+            <p>Description: {registry.description}</p>
+            <Button><Link to={`/registry/${registry.id}/edit`} style={{ color: "inherit", textDecoration: 'none' }}>Edit</Link></Button>
+          </Col>
           <Col><AddProduct getRegistry={getRegistry} /></Col>
-          <Col></Col>
           <Col></Col>
 
         </Row>
@@ -53,7 +55,7 @@ const Registry = () => {
           {
             products
               .map(product =>
-                <Product product={product} getRegistry={getRegistry} registryId={registry.id} />
+                <Product key={product.id} product={product} getRegistry={getRegistry} registryId={registry.id} />
               )}
         </div>
       </Container>

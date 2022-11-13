@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Row, Col } from "react-bootstrap";
 import { deleteProduct } from "../config/API-Calls";
 import './misc.css';
 import {
@@ -48,7 +48,11 @@ const Product = ({ product, registryId, getRegistry }) => {
           </Card.Text>
         </Card.Body>
         <Card.Footer className="card-footer">
-          <Button variant="danger" onClick={() => removeProduct(product.id)}>Remove</Button>
+          <Row>
+            <Col></Col>
+            <Col></Col>
+            <Col><Button variant="danger" onClick={() => removeProduct(product.id)}>Remove</Button></Col>
+          </Row>
         </Card.Footer>
       </Card>
     </>

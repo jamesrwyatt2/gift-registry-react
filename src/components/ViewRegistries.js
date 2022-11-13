@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { retrieveRegistries, deleteRegistry } from "../config/API-Calls";
 import AddRegistry from "./AddRegistry";
+import RegistryCard from "./RegistryCard";
 import { Link } from "react-router-dom";
 import './ViewRegistries.css';
 import { Container, Row, Col } from "react-bootstrap";
@@ -48,14 +49,15 @@ const Registries = ({ props }) => {
           {
             registries
               .map(registry =>
-                <div key={registry.id} className="card registry-card" style={{ width: "18rem" }} >
-                  <div className="card-body">
-                    <h5 className="card-title"><Link to={`/registry/${registry.id}`} style={{ color: "inherit" }}>{registry.title}</Link></h5>
-                    <h6 className="card-subtitle mb-2 text-muted">{registry.date}</h6>
-                    <p className="card-text">{registry.description}</p>
-                    <button onClick={() => removeRegistry(registry.id)}>Remove Registry</button>
-                  </div>
-                </div>
+                <RegistryCard key={registry.id} registry={registry} removeRegistry={removeRegistry} />
+                // <div key={registry.id} className="card registry-card" style={{ width: "18rem" }} >
+                //   <div className="card-body">
+                //     <h5 className="card-title"><Link to={`/registry/${registry.id}`} style={{ color: "inherit" }}>{registry.title}</Link></h5>
+                //     <h6 className="card-subtitle mb-2 text-muted">{registry.date}</h6>
+                //     <p className="card-text">{registry.description}</p>
+                //     <button onClick={() => removeRegistry(registry.id)}>Remove Registry</button>
+                //   </div>
+                // </div>
               )}
         </div>
         </Row>
