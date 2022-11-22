@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { createRegistry } from "../config/API-Calls";
+import { createRegistry } from "../../config/API-Calls";
 import { Form, Button } from "react-bootstrap";
 
 
-const AddRegistry = ({ getRegistries }) => {
+const NewRegistry = ({ getRegistries }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState("");
@@ -59,4 +59,4 @@ const AddRegistry = ({ getRegistries }) => {
         </div>
     )
 }
-export default AddRegistry
+export default NewRegistry

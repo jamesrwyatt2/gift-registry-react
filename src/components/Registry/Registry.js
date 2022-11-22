@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { retrieveRegistry, deleteProduct } from "../config/API-Calls";
-import AddProduct from "./AddProduct";
-import Product from "./Product";
-import Header from "./Header";
+import { retrieveRegistry, deleteProduct } from "../../config/API-Calls";
+import AddProduct from "../AddProduct";
+import Product from "../Product";
+import Header from "../Header";
+
 //Do not remove Unused Import for BrowserRouter - all are needed
 import {
   BrowserRouter as Router,

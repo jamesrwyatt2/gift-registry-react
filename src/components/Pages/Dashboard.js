@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { retrieveRegistries, deleteRegistry } from "../config/API-Calls";
-import AddRegistry from "./AddRegistry";
-import RegistryCard from "./RegistryCard";
+import { retrieveRegistries, deleteRegistry } from "../../config/API-Calls";
+import NewRegistry from "../NewRegistry/NewRegistry";
+import RegistryCard from "../RegistryCard";
 import { Link } from "react-router-dom";
-import './ViewRegistries.css';
+
 import { Container, Row, Col } from "react-bootstrap";
-import Header from "./Header";
+import Header from "../Header";
 
 
-const Registries = ({ props }) => {
+const Dashboard = () => {
+
   const [registries, setRegistries] = useState([]);
 
   useEffect(() => {
@@ -16,7 +17,6 @@ const Registries = ({ props }) => {
   }, []);
 
   const getRegistries = () => {
-    console.log("Getting Registries!")
     return retrieveRegistries()
       .then(res => {
         const registries = res.data;
@@ -24,7 +24,6 @@ const Registries = ({ props }) => {
       })
   }
   const removeRegistry = id => {
-    console.log("Delete Key: " + id)
     deleteRegistry(id).then(res => {
       console.log(res.status)
       getRegistries()
@@ -39,7 +38,7 @@ const Registries = ({ props }) => {
       <Container>
       <h2>Welcome, James!</h2>
         <Row>
-          <Col><AddRegistry getRegistries={getRegistries} /></Col>
+          <Col><NewRegistry getRegistries={getRegistries} /></Col>
           <Col></Col>
           <Col></Col>
         </Row>
@@ -65,4 +64,4 @@ const Registries = ({ props }) => {
     </div>
   )
 }
-export default Registries
+export default Dashboard;
