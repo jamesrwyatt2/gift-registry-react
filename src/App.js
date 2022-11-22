@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Registries from './components/Pages/Dashboard';
 import Registry from './components/Registry/Registry';
+import Home from './components/Pages/Home';
 
 import EditRegistry from './components/EditRegistry';
 
@@ -25,6 +26,7 @@ function App() {
       <BrowserRouter>
         <Routes>
         <Route path="/" element={<Dashboard/>}>  </Route>
+        <Route path="/home" element={<Home/>}>  </Route>
         <Route path="/registry/:id" element={<Registry/>}> </Route>
         <Route path="/registry/:id/edit" element={<EditRegistry/>}> </Route>
         

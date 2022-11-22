@@ -10,7 +10,8 @@ const Header = () => {
         <Container>
           <Navbar.Brand href="#home">Brilliant Registry</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/">Dashboard</Nav.Link>
           </Nav>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
