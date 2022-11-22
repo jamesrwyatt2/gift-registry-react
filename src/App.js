@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
-import Registries from './components/ViewRegistries';
-import Registry from './components/Registry';
+import Registries from './components/Pages/Dashboard';
+import Registry from './components/Registry/Registry';
+
 import EditRegistry from './components/EditRegistry';
+
+import Dashboard from './components/Pages/Dashboard';
 
 import {
   BrowserRouter,
@@ -16,20 +19,12 @@ import {
 
 function App() {
 
-  const CreateHeader = () => {
-    return(
-      <div>
-        <h1>Brilliant Registry</h1>
-      </div>
-    )
-  }
-
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<Registries/>}>  </Route>
+        <Route path="/" element={<Dashboard/>}>  </Route>
         <Route path="/registry/:id" element={<Registry/>}> </Route>
         <Route path="/registry/:id/edit" element={<EditRegistry/>}> </Route>
         
