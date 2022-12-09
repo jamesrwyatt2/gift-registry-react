@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
+import Header from "../Header";
 import { useParams } from "react-router-dom";
-import {Redirect} from 'react-router-dom';
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
-import { retrieveRegistry, editRegistry } from "../config/API-Calls";
+import { retrieveRegistry, editRegistry } from "../../config/API-Calls";
 import { useNavigate } from 'react-router-dom';
 
 const EditRegistry = () => {
-
-  const [registry, setRegistry] = useState({});
-  const [products, setProducts] = useState([]);
   const { id } = useParams();
 
   const [title, setTitle] = useState("");
@@ -19,16 +15,16 @@ const EditRegistry = () => {
 
   useEffect(() => {
     getRegistry()
-  }, []);
+  });
 
   const getRegistry = () => {
     retrieveRegistry(id)
       .then(res => {
         const data = res.data;
-        setRegistry(data);
         setTitle(data.title);
         setDescription(data.description);
         setDate(data.date);
+        console.log("feteched data");
       })
   }
 

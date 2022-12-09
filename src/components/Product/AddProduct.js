@@ -1,14 +1,7 @@
 import React, { useState } from "react";
-import { createProduct } from "../config/API-Calls";
+import { createProduct } from "../../config/API-Calls";
 import { Form, Button } from "react-bootstrap";
-//Do not remove Unused Import for BrowserRouter - all are needed
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Routes,
-  useParams,
-} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 
 const AddProduct = ({ getRegistry }) => {
@@ -18,7 +11,9 @@ const AddProduct = ({ getRegistry }) => {
   const { id } = useParams();
 
   const handleSubmit = e => {
+    
     e.preventDefault();
+    
     if (url === "") {
       setError("Not a valid URL");
       return;
@@ -39,13 +34,6 @@ const AddProduct = ({ getRegistry }) => {
       setError("Not a valid URL");
     })
   }
-
-  const validateUrl = () => {
-    if (url == "") {
-
-    }
-  }
-
 
   return (<>
 

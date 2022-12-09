@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import Registries from './components/Pages/Dashboard';
-import Registry from './components/Registry/Registry';
+import ViewRegistry from './components/Pages/ViewRegistry';
 import Home from './components/Pages/Home';
 
-import EditRegistry from './components/EditRegistry';
+import EditRegistry from './components/Pages/EditRegistry';
 
 import Dashboard from './components/Pages/Dashboard';
 
@@ -12,10 +12,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-	Link,
-  Outlet,
-  Router,
-  useNavigate,
 } from "react-router-dom";
 
 function App() {
@@ -25,9 +21,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<Dashboard/>}>  </Route>
-        <Route path="/home" element={<Home/>}>  </Route>
-        <Route path="/registry/:id" element={<Registry/>}> </Route>
+        <Route path="/" element={<Home/>}>  </Route>
+        <Route path="/dashboard" element={<Dashboard/>}>  </Route>
+        <Route path="/registry/:id" element={<ViewRegistry/>}> </Route>
         <Route path="/registry/:id/edit" element={<EditRegistry/>}> </Route>
         
         <Route path="/new/location" element={<Registries/>}>  </Route>

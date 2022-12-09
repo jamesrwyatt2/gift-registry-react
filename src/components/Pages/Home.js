@@ -1,18 +1,23 @@
 import React from "react";
-import { Tab } from "react-bootstrap";
 import Header from "../Header";
 import LoginAndReg from "../Login/LoginAndReg";
-import Container from "react-bootstrap/Container";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Home = () => {
 
   return (
     <div>
       <Header />
-      
+
       <Container>
         <h1>Home</h1>
-        <LoginAndReg />
+        <Row>
+          <Col></Col>
+          <Col>
+            <LoginAndReg />
+          </Col>
+          <Col></Col>
+        </Row>
       </Container>
 
     </div>

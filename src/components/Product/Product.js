@@ -1,27 +1,22 @@
 import React from "react";
 import { Card, Button, Row, Col } from "react-bootstrap";
-import { deleteProduct } from "../config/API-Calls";
-import './misc.css';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Routes,
-  useParams,
-} from "react-router-dom";
+import { deleteProduct } from "../../config/API-Calls";
+import '../misc.css';
+import {Link} from "react-router-dom";
 
-const Product = ({ product, registryId, getRegistry }) => {
+const Product = ({ product, registryId, changeToRegistry}) => {
 
   const removeProduct = (productId) => {
     console.log("In remove product")
     deleteProduct(registryId, productId)
       .then(res => {
-        getRegistry()
+        // console.log(res.data);
+        changeToRegistry(true);
       }).catch(error => {
         console.log(error.response.data.error)
       })
   }
-  console.log("Product Price: " + product.price)
+
   return (
     <>
       <Card key={product.id} style={{ width: '18rem', height: '20rem', margin: '0.5rem 0.5rem', }}>

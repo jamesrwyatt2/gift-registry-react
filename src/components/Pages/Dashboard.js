@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { retrieveRegistries, deleteRegistry } from "../../config/API-Calls";
+import { retrieveRegistries} from "../../config/API-Calls";
 import NewRegistry from "../NewRegistry/NewRegistry";
-import RegistryCard from "../RegistryCard";
-import { Link } from "react-router-dom";
+import RegistryList from "../Registry/RegistryList";
 
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "../Header";
@@ -23,20 +22,11 @@ const Dashboard = () => {
         setRegistries(registries);
       })
   }
-  const removeRegistry = id => {
-    deleteRegistry(id).then(res => {
-      console.log(res.status)
-      getRegistries()
-    })
-  }
-
   return (
-    <div 
-    // className="container-fluid container mt-5"
-    >
-      <Header/>
+    <div>
+      <Header />
       <Container>
-      <h2>Welcome, James!</h2>
+        <h2>Welcome, James!</h2>
         <Row>
           <Col><NewRegistry getRegistries={getRegistries} /></Col>
           <Col></Col>
@@ -44,21 +34,7 @@ const Dashboard = () => {
         </Row>
         <br />
         <Row>
-        <div className="d-flex flex-wrap card-container">
-          {
-            registries
-              .map(registry =>
-                <RegistryCard key={registry.id} registry={registry} removeRegistry={removeRegistry} />
-                // <div key={registry.id} className="card registry-card" style={{ width: "18rem" }} >
-                //   <div className="card-body">
-                //     <h5 className="card-title"><Link to={`/registry/${registry.id}`} style={{ color: "inherit" }}>{registry.title}</Link></h5>
-                //     <h6 className="card-subtitle mb-2 text-muted">{registry.date}</h6>
-                //     <p className="card-text">{registry.description}</p>
-                //     <button onClick={() => removeRegistry(registry.id)}>Remove Registry</button>
-                //   </div>
-                // </div>
-              )}
-        </div>
+          <RegistryList registries={registries} getRegistries={getRegistries} />
         </Row>
       </Container>
     </div>

@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { retrieveRegistry, deleteProduct } from "../../config/API-Calls";
-import AddProduct from "../AddProduct";
-import Product from "../Product";
+import { retrieveRegistry } from "../../config/API-Calls";
+import AddProduct from "../Product/AddProduct";
+import Product from "../Product/Product";
 import Header from "../Header";
-
-//Do not remove Unused Import for BrowserRouter - all are needed
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Routes,
-  useParams,
-} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Registry.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import ProductList from "../Product/ProductList";
 
-const Registry = () => {
+const ViewRegistry = () => {
   const [registry, setRegistry] = useState({});
   const [products, setProducts] = useState([]);
   const { id } = useParams();
+  const [isRegistryChanged, setIsRegistryChanged] = useState(false);
 
-  useEffect(() => {
-    getRegistry()
-  }, []);
+
 
   const getRegistry = () => {
     retrieveRegistry(id)
@@ -30,8 +22,14 @@ const Registry = () => {
         const data = res.data;
         setRegistry(data);
         setProducts(data.products);
+        setIsRegistryChanged(false);
+        console.log("Setting products");
       })
   }
+
+  useEffect(() => {
+    getRegistry()
+  }, [isRegistryChanged]);
 
   return (
     <div
@@ -49,20 +47,17 @@ const Registry = () => {
           </Col>
           <Col><AddProduct getRegistry={getRegistry} /></Col>
           <Col></Col>
-
         </Row>
         <h4>Products</h4>
-        <div className="d-flex flex-wrap card-container">
-          {
-            products
-              .map(product =>
-                <Product key={product.id} product={product} getRegistry={getRegistry} registryId={registry.id} />
-              )}
-        </div>
+        <ProductList
+          products={products}
+          changeToRegistry={setIsRegistryChanged}
+          regId={registry.id}
+        />
       </Container>
     </div>
   )
 
 }
 
-export default Registry
+export default ViewRegistry;

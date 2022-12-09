@@ -1,6 +1,5 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -10,8 +9,8 @@ const Header = () => {
         <Container>
           <Navbar.Brand href="#home">Brilliant Registry</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/">Dashboard</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           </Nav>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
